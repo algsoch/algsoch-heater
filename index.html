@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter Heater Catalog</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffefd5, #ffe4e1);
+            color: #333;
+        }
+        header {
+            text-align: center;
+            background: #b41183;
+            color: #fff;
+            padding: 1rem 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .slog {
+            text-align: center;
+            font-size: 2rem;
+            margin: 0.5rem 0 2rem;
+            color: #d8aa2b;
+            font-weight: bold;
+            animation: sloganGlow 2s infinite;
+        }
+        @keyframes sloganGlow {
+            0% { color: #ff6347; }
+            50% { color: #ff7f50; }
+            100% { color: #ff6347; }
+        }
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+        .product {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            padding: 1rem;
+            animation: fadeIn 1.5s;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .product h3 {
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem;
+        }
+        .product p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .price {
+            font-size: 2rem;
+            color: #ff4500;
+            margin: 0.5rem 0 1rem;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+        .buttons a {
+            flex: 1;
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #fff;
+            text-align: center;
+        }
+        .amazon {
+            background: #ff9900;
+        }
+        .whatsapp {
+            background: #25d366;
+        }
+        .download-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .download-section button {
+            background: #007bff;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .download-section button:hover {
+            background: #0056b3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .modal-content img {
+            max-width: 100%;
+            width: 80%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .modal-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            margin-top: 1rem;
+            width: 100%;
+            justify-content: center;
+        }
+        .modal-slider img {
+            cursor: pointer;
+            max-width: 20%;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        .modal-slider img:hover {
+            transform: scale(1.1);
+        }
+        .close-modal {
+            background: #ff4500;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>Stay Warm, Stay Cool: The Ultimate Heater Collection</header>
+    
+    <h1 class="slog">Adustable And Portable Design</h1>
+
+    <div class="catalog">
+        <!-- Example Product -->
+        <!-- <h1 class="slog">fan heater</h1> -->
+
+        <div class="product" onclick="openModal(['h1.jpeg', 'h2.jpeg', 'h3.jpeg', 'h4.jpeg'])">
+            <img src="h1.jpeg" alt="Heater 1">
+            <h3 >Fan heater</h3>
+            <p>Perfect for small spaces, energy-efficient and portable.</p>
+            <ul><h1>special features </h1><h4>
+                <li>2 Heat Setting: 1000w/2000w</li>
+                <li>Force Hot Air Calculation</li>
+                <li>Overheat Safety Cut-Out</li>
+                <li>Built in Safety Cut-out</li></h4>
+            </ul>
+            <h1 class="price">₹1339</h1>
+            <div class="buttons">
+                <a href="https://www.amazon.in" class="amazon" target="_blank">Buy on Amazon</a>
+                <a href="https://wa.me/918700044251" class="whatsapp" target="_blank">Contact on WhatsApp</a>
+            </div>
+        </div>
+        <!-- Repeat for 100 products -->
+        <div class="product" onclick="openModal(['h2.jpeg', 'h2.jpeg', 'h3.jpeg', 'h4.jpeg'])">
+            <img src="h2.jpeg" alt="Heater 1">
+            <h3 >Fan heater</h3>
+            <p>Perfect for small spaces, energy-efficient and portable.</p>
+            <ul><h1>special features </h1><h4>
+                <li>2 Heat Setting: 1000w/2000w</li>
+                <li>Force Hot Air Calculation</li>
+                <li>Overheat Safety Cut-Out</li>
+                <li>Built in Safety Cut-out</li></h4>
+            </ul>
+            <h1 class="price">₹1339</h1>
+            <div class="buttons">
+                <a href="https://www.amazon.in" class="amazon" target="_blank">Buy on Amazon</a>
+                <a href="https://wa.me/918700044251" class="whatsapp" target="_blank">Contact on WhatsApp</a>
+            </div>
+        </div>
+        <div class="product" onclick="openModal(['h1.jpeg', 'h2.jpeg', 'h3.jpeg', 'h4.jpeg'])">
+            <img src="h3.jpeg" alt="Heater 1">
+            <h3 >Fan heater</h3>
+            <p>Perfect for small spaces, energy-efficient and portable.</p>
+            <ul><h1>special features </h1><h4>
+                <li>2 Heat Setting: 1000w/2000w</li>
+                <li>Force Hot Air Calculation</li>
+                <li>Overheat Safety Cut-Out</li>
+                <li>Built in Safety Cut-out</li></h4>
+            </ul>
+            <h1 class="price">₹799</h1>
+            <div class="buttons">
+                <a href="https://www.amazon.in" class="amazon" target="_blank">Buy on Amazon</a>
+                <a href="https://wa.me/918700044251" class="whatsapp" target="_blank">Contact on WhatsApp</a>
+            </div>
+        </div>
+        <div class="product" onclick="openModal(['h1.jpeg', 'h2.jpeg', 'h3.jpeg', 'h4.jpeg'])">
+            <img src="h4.jpeg" alt="Heater 1">
+            <h3 >Fan heater</h3>
+            <p>Perfect for small spaces, energy-efficient and portable.</p>
+            <ul><h1>special features </h1><h4>
+                <li>2 Heat Setting: 1000w/2000w</li>
+                <li>Force Hot Air Calculation</li>
+                <li>Overheat Safety Cut-Out</li>
+                <li>Built in Safety Cut-out</li></h4>
+            </ul>
+            <h1 class="price">₹1,999</h1>
+            <div class="buttons">
+                <a href="https://www.amazon.in" class="amazon" target="_blank">Buy on Amazon</a>
+                <a href="https://wa.me/918700044251" class="whatsapp" target="_blank">Contact on WhatsApp</a>
+            </div>
+        </div>
+       
+    </div>
+
+    <!-- <div class="download-section">
+        <button onclick="downloadPDF()">Download Product Catalog (PDF)</button>
+    </div> -->
+
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <img id="mainImage" src="" alt="Product Image">
+            <div class="modal-slider" id="slider">
+                <!-- Slider images dynamically generated -->
+            </div>
+            <button class="close-modal" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            alert('PDF download feature coming soon!');
+        }
+
+        function openModal(images) {
+            const mainImage = document.getElementById('mainImage');
+            const slider = document.getElementById('slider');
+
+            mainImage.src = images[0];
+            slider.innerHTML = '';
+
+            images.forEach(image => {
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = "Product Image";
+                img.onclick = () => {
+                    mainImage.src = image;
+                };
+                slider.appendChild(img);
+            });
+
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
+    <p class="slog">"Cozy Vibes for Freezing Times!"</p>
+</body>
+</html>
